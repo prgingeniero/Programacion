@@ -1,0 +1,65 @@
+site_name: PRG
+# site_url: http://ayudas.solar
+site_url: http://prg.engineer
+
+theme:
+  features:
+    - header.autohide
+  language: es
+  # palette:
+    # primary: amber
+  name: material
+  language: es
+  favicon: assets/favicon.ico
+  logo: assets/logo.svg
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    # - navigation.instant
+
+
+markdown_extensions:
+  - meta
+  - tables
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+plugins:
+  - search
+  # - mknotebooks
+
+
+
+extra:
+  analytics:
+    provider: google
+    property: G-BY8HY373BD
+  alternate:
+    - name: Español
+      link: /
+      lang: es
+    - name: English
+      link: /en/ # 
+      lang: en
+
+
+
+
+extra_javascript:
+  - javascripts/config.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+copyright: © 2021 PRG
+

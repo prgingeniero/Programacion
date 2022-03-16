@@ -346,14 +346,21 @@ Después de ejecutar esto, la variable *data* contendrá un  diccionario con los
 
 Volcar una estructura Python a un fichero JSON es igual de sencillo.  Supongamos que tenemos la siguiente inicialización de la variable datos:
 
-```
-datos = {  "user_name": "James",  "password": “007”,  "messages": [(1532648502.113984, “mensaje 1”), (1532648642.729385,   “mensaje 1”)],   "email": session['email'],  "friends": session['friends']}
+```json
+datos = {
+    "user_name": "James",
+    "password": “007”,
+    "messages": [(1532648502.113984, “mensaje 1”), (1532648642.729385,     “mensaje 1”)],
+    "email": session['email'],
+    "friends": session['friends']
+}
 ```
 
 Entonces guardar los datos en el fichero correspondiente sería:
 
-```
-with open(“james.bond@mi6.uk”, 'w') as f:  json.dump(datos, f)
+```python
+with open(“james.bond@mi6.uk”, 'w') as f:
+    json.dump(datos, f)
 ```
 
 

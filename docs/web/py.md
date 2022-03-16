@@ -619,7 +619,7 @@ Completa las partes faltantes del código para obtener el siguiente resultado:
 
 La primera parte del código, donde definimos los datos para graficar, es esta:
 
-```python
+```pythonLaLaLa
 1	import numpy as np
 2	import plotly.offline as pyo
 3	import plotly.graph_objs as go
@@ -713,3 +713,166 @@ En la línea 42, mediante la función `fig.add_annotation()`, agregamos la segun
 En la línea 45, deberás definir de manera apropiada el  parámetro y para que dicha anotación apunte al punto sobre dicha línea  horizontal punteada donde x=0.6.
 
 Observa que el elemento **#Completar8** también se usa en la línea 48, donde se define el texto de la anotación.
+
+
+
+
+
+## Introducción a las bases de Dash
+
+#### Dash es una biblioteca para crear tableros puramente en Python.
+
+[ https://dash.plotly.com/introduction](https://dash.plotly.com/introduction)
+
+Las componentes de HTML vienen de `dash_html_components`, que básicamente tiene un componente de Python para cada etiqueta HTML posible. 
+      [ https://dash.plotly.com/dash-html-components](https://dash.plotly.com/dash-html-components)
+
+La otra biblioteca es `dash_core_components` que contiene son los componentes centrales, y esta ofrece un sistema de componentes interactivos de nivel superior en el que generará cosas  como JavaScript, HTML y CSS a través de la biblioteca React.JS, todo en  Python. 
+      [ https://dash.plotly.com/dash-core-components](https://dash.plotly.com/dash-core-components)
+
+Si deseas ver ejemplos más complejos de lo que se puede lograr con `Plotly+Dash`, te sugerimos revisar la galería: 
+      [ https://dash-gallery.plotly.host/Portal/](https://dash-gallery.plotly.host/Portal/)
+
+En general nuestros códigos de las siguientes unidades empezarán importando estos módulos:
+
+```python
+ import dash
+ import dash_core_components as dcc
+ import dash_html_components as html
+```
+
+Recuerda que si aún no los tienes instalados, puedes obtenerlos usando, por ejemplo: 
+
+​            `pip install dash`            
+
+desde la terminal en PyCharm.
+
+
+
+
+
+### Proyecto
+
+#### Objetivo
+
+El objetivo de este proyecto es utilizar elementos que  revisamos durante este módulo 4 para construir un tablero en el que  podamos analizar las variables de uno de los datasets que utilizamos en  el módulo 3, el *dataset iris*.
+
+En particular, nuestro tablero nos permitirá especificar algunos parámetros de un diagrama de dispersión: los *ejes* y los *marginales*.
+
+El resultado final debe verse de esta forma:
+
+​	    ![Diagrama de dispersión](py.assets/Proyecto_Mo_dulo4.png) 
+
+
+
+##### Instrucciones
+
+Te presentamos la mayor parte del código para generar el  tablero antes descrito, sin embargo, este código tiene partes faltantes  que deberás completar. Las ubicarás donde hemos colocado etiquetas de  tipo #Completar1.
+
+Esta es la primera parte del código:
+
+```python
+1	import dash
+2	import dash_core_components as dcc
+3	import dash_html_components as html
+4	import pandas as pd
+5	import plotly.express as px
+6	from dash.dependencies import Input, Output
+7
+8	df = pd.read_csv('Datasets/iris.csv')
+9
+10	variables = #Completar1
+11	marginals = #Completar2
+12
+13	app = dash.Dash()
+```
+
+Las primeras líneas son para importar las bibliotecas necesarias.
+
+En la línea 8 creamos el `dataframe df` leyendo el dataset `iris.csv`.
+
+En la línea 10 deberás definir **#Completar1** de modo que **variables** sirva como el parámetro options de los *dropdowns* que sirven para seleccionar variables del dataframe, con la restricción de que no incluya a la variable 'class'.
+
+En la línea 11 deberás definir **#Completar2** de modo que **marginals** sirva como el parámetro options de los *radio items* que sirven para seleccionar alguno de los cuatro tipo de marginales: `'histogram', 'rug', 'box' y 'violin'`.
+
+Luego, tenemos la segunda parte del código, la más extensa:
+
+```python
+15	app.layout = html.Div([html.Div([html.H1('Análisis del dataset iris.csv')],
+16	                               style={'textAlign': 'center'}),
+17	                      html.Div([html.H3('Configuración de parámetros de la gráfica')],
+18	                               style={'marginLeft': '5%'}),
+19	                      html.Div([html.Label('Selecciona la variable del eje X'),
+20	                                dcc.Dropdown(id='eje-x', options=#Completar3)],
+21	                               style={'width': '20%',
+22	                                      'marginRight': '3%',
+23	                                      'marginLeft': '5%',
+24	                                      'verticalAlign': 'top',
+25	                                      'display': 'inline-block'}),
+26	                      html.Div([html.Label('Selecciona el marginal del eje X'),
+27	                                dcc.RadioItems(id='marginal-x', options=#Completar4, labelStyle={'display': 'block'})],
+28	                               style={'width': '20%',
+29	                                      'marginRight': '4%',
+30	                                      'display': 'inline-block'}),
+31	                      html.Div([html.Label('Seleccionar la variable del eje Y'),
+32	                                dcc.Dropdown(id='eje-y', options=#Completar3)],
+33	                               style={'width': '20%',
+34	                                      'marginRight': '3%',
+35	                                      'verticalAlign': 'top',
+36	                                      'display': 'inline-block'}),
+37	                      html.Div([html.Label('Selecciona el marginal del eje Y'),
+38	                                dcc.RadioItems(id='marginal-y', options=#Completar4, labelStyle={'display': 'block'})],
+39	                               style={'width': '20%',
+40	                                      'display': 'inline-block'}),
+41	                      html.Div([dcc.Graph(id='scatter')])])
+```
+
+Observa que en realidad esta parte del código, donde definimos  el layout de nuestro tablero, es extensa debido a que usamos muchos  parámetros de tipo style, para poder darle la forma deseada a nuestro  tablero, pero en realidad este layout tiene cinco elementos principales: `dos dcc.Dropdown()`, `dos dcc.RadioItems()` y un `dcc.Graph()`.
+
+En la línea 20, deberás definir **#Completar3** de modo que el elemento `dcc.Dropdown()` de esa misma línea sirva para poder seleccionar alguna de las variables del dataframe, y que se asigne al eje X.
+
+Observa que en la línea 32 usamos ese mismo elemento para el eje Y.
+
+En la línea 27, deberás definir **#Completar4** de modo que el elemento `dcc.RadioItems()` de esa misma línea sirva para poder seleccionar alguna de las opciones  de marginales que tenemos, y que se asigne al marginal del eje X.
+
+Observa que en la línea 38 usamos ese mismo elemento para el eje Y.
+
+Todos los demás parámetros y elementos ya están definidos, y  puedes modificarlos si gustas, sobre todo si alguno no te queda claro  qué rol está jugando en la distribución de los elementos del tablero,  para explorar.
+
+Para que los elementos del tablero queden distribuidos como te  presentamos previamente, la recomendación es que uses las definiciones  que te proponemos.
+
+Finalmente, la tercera y última parte del código es la siguiente:
+
+```python
+43	@app.callback(Output('scatter', 'figure'),
+44	             [Input('eje-x', 'value'),
+45	              Input('marginal-x', 'value'),
+46	              Input('eje-y', 'value'),
+47	              Input('marginal-y', 'value')])
+48	def update_outputs(vx, mx, vy, my):
+49	   fig = px.scatter(df,
+50	                    x=#Completar5,
+51	                    y=#Completar6,
+52	                    color='class',
+53	                    marginal_x=#Completar7,
+54	                    marginal_y=#Completar8,
+55	                    title='Diagrama de dispersión: '+str(#Completar5)+' v.s. '+str(#Completar6))
+56	   return fig
+57
+58	if __name__ == '__main__':
+59	   app.run_server()
+```
+
+De la línea 43 a la 56 definimos un callback, que recibe los  cuatro valores que el usuario seleccionó en los dropdowns y en los radio items, y actualiza el diagrama de dispersión, y los respectivos  marginales de los ejes.
+
+En la línea 50, deberás definir **#Completar5** de modo que al parámetro x le asignes la variable que el usuario seleccionó en el dropdown del eje X.
+
+En la línea 51, deberás definir **#Completar6** de modo que al parámetro y le asignes la variable que el usuario seleccionó en el dropdown del eje Y.
+
+Observa que esos elementos, **#Completar5** y **#Completar6**, también se usan en la línea 55, para actualizar el título de la gráfica.
+
+En la línea 53, deberás definir **#Completar7** de modo que al parámetro `marginal_x` le asignes la opción de marginal que el usuario seleccionó para el radio item del eje X.
+
+En la línea 54, deberás definir **#Completar8** de modo que al parámetro `marginal_y` le asignes la opción de marginal que el usuario seleccionó para el radio item del eje Y.
+
+Al guardar y ejecutar el código completo, debes obtener un tablero como el que te presentamos al principio.

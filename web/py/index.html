@@ -366,6 +366,26 @@
     flask
   </a>
   
+    <nav class="md-nav" aria-label="flask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-basico" class="md-nav__link">
+    ejemplo basico
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flask-ejem-buenisimo-api-json" class="md-nav__link">
+    flask. ejem buenisimo api json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -406,6 +426,13 @@
           <li class="md-nav__item">
   <a href="#objeto-flask-session" class="md-nav__link">
     Objeto Flask Session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterando-sobre-los-elementos-en-beautiful-soup" class="md-nav__link">
+    Iterando sobre los elementos en Beautiful Soup
   </a>
   
 </li>
@@ -475,6 +502,26 @@
     flask
   </a>
   
+    <nav class="md-nav" aria-label="flask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-basico" class="md-nav__link">
+    ejemplo basico
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flask-ejem-buenisimo-api-json" class="md-nav__link">
+    flask. ejem buenisimo api json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -515,6 +562,13 @@
           <li class="md-nav__item">
   <a href="#objeto-flask-session" class="md-nav__link">
     Objeto Flask Session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterando-sobre-los-elementos-en-beautiful-soup" class="md-nav__link">
+    Iterando sobre los elementos en Beautiful Soup
   </a>
   
 </li>
@@ -566,6 +620,7 @@ pk@pk:~$
 pk@pk:~$ 
 </code></pre></div>
 <h2 id="flask">flask</h2>
+<h3 id="ejemplo-basico">ejemplo basico</h3>
 <p>app.py</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 
@@ -613,6 +668,190 @@ pk@pk:~$
 <p>index.html</p>
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
+<h3 id="flask-ejem-buenisimo-api-json">flask. ejem buenisimo api json</h3>
+<div class="highlight"><pre><span></span><code><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">http://127.0.0.1:8080/songs/all</span>
+
+
+<span class="sd">import requests</span>
+<span class="sd">cancion={</span>
+<span class="sd">    &#39;Artista&#39;:&#39;dfasfd&#39;,</span>
+<span class="sd">    &#39;Nombre&#39;:&#39;jojo&#39;</span>
+<span class="sd">}</span>
+
+<span class="sd">respuesta=requests.get(&#39;http://127.0.0.1:8080/songs/all&#39;)</span>
+<span class="sd">print(&#39;\n&#39;,respuesta.content.decode())</span>
+
+<span class="sd">respuesta=requests.post(&#39;http://127.0.0.1:8080/songs/new&#39;,json=cancion)</span>
+<span class="sd">print(&#39;\n&#39;,respuesta.content.decode())</span>
+
+<span class="sd">respuesta=requests.get(&#39;http://127.0.0.1:8080/songs/all&#39;)</span>
+<span class="sd">print(&#39;\n&#39;,respuesta.content.decode())</span>
+
+<span class="sd">respuesta=requests.patch(&#39;http://127.0.0.1:8080/songs/2&#39;, json={&#39;Artista&#39;:&#39;jijiji&#39;})</span>
+<span class="sd">print(&#39;\n&#39;,respuesta.content.decode())</span>
+
+<span class="sd">respuesta=requests.get(&#39;http://127.0.0.1:8080/songs/all&#39;)</span>
+<span class="sd">print(&#39;\n&#39;,respuesta.content.decode())</span>
+
+
+<span class="sd">&#39;&#39;&#39;</span>
+
+
+<span class="c1"># Ejemplo API</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">song_db</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+     <span class="s2">&quot;Artista&quot;</span><span class="p">:</span> <span class="s2">&quot;Air Supply&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;Nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Making Love Out of Nothing at All&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+     <span class="s2">&quot;Artista&quot;</span><span class="p">:</span> <span class="s2">&quot;Bonnie Tyle&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;Nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Total Eclipse Of The Heart&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+     <span class="s2">&quot;Artista&quot;</span><span class="p">:</span> <span class="s2">&quot;George Michael&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;Nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Careless Whisper&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+     <span class="s2">&quot;Artista&quot;</span><span class="p">:</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;Nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Take My Breath Away&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+     <span class="s2">&quot;Artista&quot;</span><span class="p">:</span> <span class="s2">&quot;Queen&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;Nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Bohemian Rhapsody&quot;</span>
+     <span class="p">}</span>
+ <span class="p">]</span>
+
+
+<span class="c1"># GET | returns the whole catalog</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/songs/all&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_all</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">song_db</span><span class="p">),</span> <span class="mi">200</span>
+
+<span class="c1"># GET | returns an entry by an id</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/songs/&lt;int:song_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_song</span><span class="p">(</span><span class="n">song_id</span><span class="p">):</span>
+    <span class="n">song_result</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">song</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">song_db</span> <span class="k">if</span> <span class="n">song</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">song_id</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">song_result</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">jsonify</span><span class="p">(</span><span class="n">song_result</span><span class="p">),</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;404 Not Found&quot;</span><span class="p">,</span> <span class="mi">404</span>
+<span class="c1"># GET | returns all songs with the same name</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/songs/search/&lt;string:song_name&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">search_song</span><span class="p">(</span><span class="n">song_name</span><span class="p">):</span>
+    <span class="n">songs</span> <span class="o">=</span> <span class="p">[</span><span class="n">song</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">song_db</span> <span class="k">if</span> <span class="n">song_name</span> <span class="ow">in</span> <span class="n">song</span><span class="p">[</span><span class="s2">&quot;Nombre&quot;</span><span class="p">]]</span>
+
+    <span class="k">if</span> <span class="n">songs</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">jsonify</span><span class="p">(</span><span class="n">songs</span><span class="p">),</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;404 Not Found&quot;</span><span class="p">,</span> <span class="mi">404</span>
+
+<span class="c1"># POST | creates a new entry in the catalog</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/songs/new&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">post_song</span><span class="p">():</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+        <span class="n">song_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="n">song_id</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">song</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">song_db</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span>
+        <span class="n">song_artist</span> <span class="o">=</span> <span class="n">song_data</span><span class="p">[</span><span class="s2">&quot;Artista&quot;</span><span class="p">]</span>
+        <span class="n">song_name</span> <span class="o">=</span> <span class="n">song_data</span><span class="p">[</span><span class="s2">&quot;Nombre&quot;</span><span class="p">]</span>
+
+        <span class="n">new_song</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">song_id</span><span class="p">,</span>
+            <span class="s2">&quot;Artista&quot;</span><span class="p">:</span> <span class="n">song_artist</span><span class="p">,</span>
+            <span class="s2">&quot;Nombre&quot;</span><span class="p">:</span> <span class="n">song_name</span>
+      <span class="p">}</span>
+
+        <span class="n">song_db</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_song</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">new_song</span><span class="p">),</span> <span class="mi">200</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;400 Bad Request&quot;</span><span class="p">,</span> <span class="mi">400</span>
+
+<span class="c1"># DELETE | deletes an entry in the catalog by an id</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/songs/&lt;int:song_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;DELETE&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">delete_song</span><span class="p">(</span><span class="n">song_id</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">song</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">song_db</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">song</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">song_id</span><span class="p">:</span>
+            <span class="n">song_db</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="s2">&quot;Register Deleted&quot;</span><span class="p">,</span> <span class="mi">200</span>
+
+    <span class="k">return</span> <span class="s2">&quot;Not Found&quot;</span><span class="p">,</span> <span class="mi">404</span>
+
+<span class="c1"># PUT | replaces an entry in the catalog, creates a new entry if it doesn&#39;t exist</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/songs/&lt;int:song_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;PUT&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">put_song</span><span class="p">(</span><span class="n">song_id</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+         <span class="n">song_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+         <span class="n">song_artist</span> <span class="o">=</span> <span class="n">song_data</span><span class="p">[</span><span class="s2">&quot;Artista&quot;</span><span class="p">]</span>
+         <span class="n">song_name</span> <span class="o">=</span> <span class="n">song_data</span><span class="p">[</span><span class="s2">&quot;Nombre&quot;</span><span class="p">]</span>
+
+         <span class="n">edit_song</span> <span class="o">=</span> <span class="p">{</span>
+             <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">song_id</span><span class="p">,</span>
+             <span class="s2">&quot;Artista&quot;</span><span class="p">:</span> <span class="n">song_artist</span><span class="p">,</span>
+             <span class="s2">&quot;Nombre&quot;</span><span class="p">:</span> <span class="n">song_name</span>
+        <span class="p">}</span>
+
+         <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">song</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">song_db</span><span class="p">):</span>
+             <span class="k">if</span> <span class="n">song</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">song_id</span><span class="p">:</span>
+                 <span class="n">song_db</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">edit_song</span>
+
+                 <span class="k">return</span> <span class="p">(</span><span class="n">jsonify</span><span class="p">(</span><span class="n">edit_song</span><span class="p">),</span> <span class="mi">200</span><span class="p">)</span>
+
+         <span class="n">edit_song</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">song</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">song_db</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span>
+         <span class="n">song_db</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edit_song</span><span class="p">)</span>
+
+         <span class="k">return</span> <span class="p">(</span><span class="n">jsonify</span><span class="p">(</span><span class="n">edit_song</span><span class="p">),</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+         <span class="k">return</span> <span class="s2">&quot;Bad Request&quot;</span><span class="p">,</span> <span class="mi">400</span>
+
+
+<span class="c1"># PATCH | edits an entry in the catalog, fails if it doesn&#39;t exist</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/songs/&lt;int:song_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;PATCH&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">patch_song</span><span class="p">(</span><span class="n">song_id</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">song</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">song_db</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">song</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">song_id</span><span class="p">:</span>
+                <span class="n">song_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">edit_key</span> <span class="ow">in</span> <span class="n">song_data</span><span class="p">:</span>
+                    <span class="n">song</span><span class="p">[</span><span class="n">edit_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">song_data</span><span class="p">[</span><span class="n">edit_key</span><span class="p">]</span>
+
+                <span class="k">return</span> <span class="p">(</span><span class="n">jsonify</span><span class="p">(</span><span class="n">song</span><span class="p">),</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="s2">&quot;Not Found&quot;</span><span class="p">,</span> <span class="mi">404</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Bad Request&quot;</span><span class="p">,</span> <span class="mi">400</span>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="json">json</h2>
 <p>Las estructuras de JSON tienen una traducción directa a estructuras Python:</p>
 <ul>
@@ -633,10 +872,17 @@ pk@pk:~$
 <p>Después de ejecutar esto, la variable <em>data</em> contendrá un  diccionario con los datos cargados del fichero. Si por ejemplo  hubiéramos cargado el fichero con los datos del usuario <em>James</em>  visto en la sección anterior, ahora data[‘user_name’] sería “James” y  data[‘messages’] sería una lista Python con los mensajes publicados por  James.</p>
 <h3 id="escritura">Escritura</h3>
 <p>Volcar una estructura Python a un fichero JSON es igual de sencillo.  Supongamos que tenemos la siguiente inicialización de la variable datos:</p>
-<div class="highlight"><pre><span></span><code>datos = {  &quot;user_name&quot;: &quot;James&quot;,  &quot;password&quot;: “007”,  &quot;messages&quot;: [(1532648502.113984, “mensaje 1”), (1532648642.729385,   “mensaje 1”)],   &quot;email&quot;: session[&#39;email&#39;],  &quot;friends&quot;: session[&#39;friends&#39;]}
+<div class="highlight"><pre><span></span><code><span class="err">da</span><span class="kc">t</span><span class="err">os</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;user_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;James&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">“</span><span class="mi">007</span><span class="err">”</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">(</span><span class="mf">1532648502.113984</span><span class="p">,</span><span class="w"> </span><span class="err">“me</span><span class="kc">nsa</span><span class="err">je</span><span class="w"> </span><span class="mi">1</span><span class="err">”)</span><span class="p">,</span><span class="w"> </span><span class="err">(</span><span class="mf">1532648642.729385</span><span class="p">,</span><span class="w">     </span><span class="err">“me</span><span class="kc">nsa</span><span class="err">je</span><span class="w"> </span><span class="mi">1</span><span class="err">”)</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">sessio</span><span class="kc">n</span><span class="p">[</span><span class="err">&#39;email&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;friends&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">sessio</span><span class="kc">n</span><span class="p">[</span><span class="err">&#39;</span><span class="kc">fr</span><span class="err">ie</span><span class="kc">n</span><span class="err">ds&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Entonces guardar los datos en el fichero correspondiente sería:</p>
-<div class="highlight"><pre><span></span><code>with open(“james.bond@mi6.uk”, &#39;w&#39;) as f:  json.dump(datos, f)
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="err">“</span><span class="n">james</span><span class="o">.</span><span class="n">bond</span><span class="nd">@mi6</span><span class="o">.</span><span class="n">uk</span><span class="err">”</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="sesiones">sesiones</h2>
 <p>Ya hemos dicho en varias  oportunidades que el protocolo HTTP no tiene estado, que no recuerda.  ¿Qué significa eso en la práctica? Que necesitamos información adicional para implementar una “conversación” entre cliente y servidor. Esta idea de conversación, donde ambas partes recuerdan lo que han hablado hasta  el momento, se llama <strong>sesión</strong>.</p>
@@ -742,6 +988,54 @@ pk@pk:~$
     <span class="n">session</span><span class="p">[</span><span class="s1">&#39;friends&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">session</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email</span>
     <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;home&quot;</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="iterando-sobre-los-elementos-en-beautiful-soup">Iterando sobre los elementos en <strong>Beautiful Soup</strong></h3>
+<p>Hasta el momento se han visto dos principales maneras de cómo se  puede utilizar el árbol jerárquico producido por BeautifulSoup con base a una página web: utilizando métodos de búsqueda, y navegando manualmente por los elementos, cada uno con sus ventajas y desventajas. Sin  embargo, podemos utilizar un enfoque intermedio entre estos dos extremos y es el de utilizar métodos de iteración sobre los elementos. De esta  forma podemos tener la ventaja de la flexibilidad de la búsqueda, pero  con el poder de ajustar la selección de los elementos de forma manual.</p>
+<p>Para lograr este objetivo, BeautifulSoup cuenta con diferentes herramientas y métodos,siendo uno de ellos el atributo “<strong>descendants</strong>”. Su comportamiento es similar al de “<strong>children</strong>” pero no solo se limita a los elementos inmediatos, si no que enlista  todos los elementos, es decir, los hijos, los hijos de los hijos, etc.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ejemplo 1</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+
+<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">datolok</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">edx</span><span class="o">/</span>
+<span class="n">webscrapping</span><span class="o">/</span><span class="n">simple</span><span class="o">.</span><span class="n">html</span><span class="err">”</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="err">‘</span><span class="n">html</span><span class="o">.</span><span class="n">parser</span><span class="err">’</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">descendants</span><span class="p">:</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Element </span><span class="si">{}</span><span class="s2">: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">element</span><span class="p">))</span>
+</code></pre></div>
+<p>En este código se carga la página que se ha utilizado de ejemplo y se imprimen todos los elementos contenidos por medio de un ciclo for. Esto se puede combinar con otros conceptos, como la de expresiones  regulares, para identificar palabras claves o patrones de información.</p>
+<p>Este proceso de búsqueda dentro de un elemento en particular puede  aplicarse al resultado de otros procesos como el de búsqueda o  navegación.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ejemplo 2</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+
+<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">datolok</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">edx</span><span class="o">/</span>
+<span class="n">webscrapping</span><span class="o">/</span><span class="n">simple</span><span class="o">.</span><span class="n">html</span><span class="err">”</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="err">‘</span><span class="n">html</span><span class="o">.</span><span class="n">parser</span><span class="err">’</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="err">“</span><span class="n">p</span><span class="err">”</span><span class="p">):</span>
+    <span class="k">if</span> <span class="err">“</span><span class="n">contenido</span><span class="err">”</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+</code></pre></div>
+<p>En este código se encuentran todos los elementos de tipo párrafo  <p> en el documento, se iteran sobre todos los resultados y se  imprimen aquellos que contengan la palabra “contenido”. Como se puede  observar esto abre un abanico de nuevas posibilidades para automatizar  nuestro proceso de búsqueda y no depender demasiado en que la estructura de la página web no varíe.</p>
+<p>Igualmente, no estamos limitados a solamente definir nuestro criterio de selección en la iteración con el contenido del texto, también  podemos acceder a los atributos de los elementos utilizando el método  “get()”.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ejemplo 3</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+
+<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">datolok</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">edx</span><span class="o">/</span>
+<span class="n">webscrapping</span><span class="o">/</span><span class="n">simple</span><span class="o">.</span><span class="n">html</span><span class="err">”</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="err">‘</span><span class="n">html</span><span class="o">.</span><span class="n">parser</span><span class="err">’</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="err">“</span><span class="n">p</span><span class="err">”</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;outer-text&quot;</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="err">“</span><span class="n">class</span><span class="err">”</span><span class="p">),</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
 </code></pre></div>
 
               

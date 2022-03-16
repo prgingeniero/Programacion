@@ -330,20 +330,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="web/python/" class="md-nav__link">
-        py
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -386,6 +372,28 @@
 <p><center>
     <h1 style="color:Orange;">Programacion</h1>
 </center></p>
+<h1 id="webscarpt">webscarpt</h1>
+<h3 id="beautiful-soup">Beautiful Soup</h3>
+<p>Como se observó en esta unidad, <strong>BeautifulSoup</strong> toma el  contenido de la página web y lo interpreta generando una estructura más  manejable. Si bien nos enfocaremos en las etiquetas principales, vale la pena mencionar los tipos de objetos producidos:</p>
+<ul>
+<li><strong>Tag</strong>: es el objeto que nos interesa principalmente y corresponde a las etiquetas en el documento de HTML. (<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#tag">documentación</a>)</li>
+<li><strong>NavigableString</strong>: esta cadena de texto representa el contenido dentro de una etiqueta.  Tiene capacidades extras relacionadas con la navegación dentro de la  estructura. (<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#navigablestring">documentación</a>)</li>
+<li><strong>BeautifulSoup</strong>: este objeto representa el documento HTML interpretado como una  estructura jerárquica. Para fines convencionales, puede ser considerado  como objeto de tipo tag, soportando los mismos tipos de métodos. (<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#beautifulsoup">documentación</a>)</li>
+<li><strong>Comment</strong>: este objeto es un tipo especial de NavigatableString, que se representa con un formato especial al momento de impresión.  </li>
+</ul>
+<p>En resumen, se ha descrito de forma general el funcionamiento del módulo de BeautifulSoup para, en conjunto de la herramiento de  peticiones requests, interpretar la estructura de un documento HTML. En  las siguientes unidades se expandirá la información sobre las funciones, métodos y atributos relacionados con la extracción de los datos de  interés. Sin embargo, existen propiedades y capacidades que pueden  resultar interesantes como elementos auxiliares en el árbol generado, o  notaciones abreviadas que sirven para crear un código más compacto.</p>
+<hr />
+<p><em>Referencias</em>:</p>
+<p>​       </p>
+<ul>
+<li>Reitz, K. (2020). <em>Requests: HTTP for Humans.</em>
+  https://docs.python-requests.org/en/master/</li>
+<li>Richardson, L. (2020). <em>Beautiful Soup Documentation.</em> 
+  https://www.crummy.com/software/BeautifulSoup/bs4/doc/</li>
+</ul>
+<h3 id="iterando-sobre-los-elementos-en-beautiful-soup">Iterando sobre los elementos en <strong>Beautiful Soup</strong></h3>
+<p>Hasta el momento se han visto dos principales maneras de cómo se  puede utilizar el árbol jerárquico producido por BeautifulSoup con base a una página web: utilizando métodos de búsqueda, y navegando manualmente por los elementos, cada uno con sus ventajas y desventajas. Sin  embargo, podemos utilizar un enfoque intermedio entre estos dos extremos y es el de utilizar métodos de iteración sobre los elementos. De esta  forma podemos tener la ventaja de la flexibilidad de la búsqueda, pero  con el poder de ajustar la selección de los elementos de forma manual.</p>
+<p>Para lograr este objetivo, BeautifulSoup cuenta con diferentes herramientas y métodos,siendo uno de ellos el atributo “<strong>descendants</strong>”. Su comportamiento es similar al de “<strong>children</strong>” pero no solo se limita a los elementos inmediatos, si no que enlista  todos los elementos, es decir, los hijos, los hijos de los hijos, etc.</p>
 
               
             </article>

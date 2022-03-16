@@ -593,3 +593,123 @@ for p in soup.find_all(“p”):
 
 
 
+
+
+
+
+
+
+## plotly 
+
+### Proyecto
+
+#### Objetivo
+
+El objetivo del proyecto será explorar, de manera básica, cómo agregar anotaciones en nuestras gráficas generadas con plotly.
+
+En particular, aprenderás cómo agregar anotaciones para señalar puntos específicos de la gráfica de línea que revisamos en el primer  ejemplo de la unidad 5.
+
+##### Instrucciones
+
+Completa las partes faltantes del código para obtener el siguiente resultado:
+
+​	    ![Gráfica en línea](py.assets/Proyecto_Mo_dulo3.png) 
+
+
+
+La primera parte del código, donde definimos los datos para graficar, es esta:
+
+```python
+1	import numpy as np
+2	import plotly.offline as pyo
+3	import plotly.graph_objs as go
+4
+5	np.random.seed(42)
+6	x_values = np.linspace(0, 1, 100)
+7	y_values = np.random.randn(100)
+8
+9	#Calcular el promedio de los valores de y_values
+10	y_avg = #Completar1
+11
+12	#Calcular el valor máximo de y_values
+13	y_max = #Completar2
+14
+15	#Calcular el valor x_y_max tal que (x_y_max, y_max) sea el punto máximo de la gráfica de línea
+16	x_y_max = #Completar3
+```
+
+Como mencionamos antes, este proyecto inicia igual que el  ejemplo que revisamos en la unidad 5. Las primeras 7 líneas del código  son igual que en dicho ejemplo.
+
+En la línea 10 deberás completar el código para que en la variable `y_avg` sea igual al promedio de los valores del `array y_values`.
+
+En la línea 13 deberás completar el código para que en la variable `y_max` sea igual al valor máximo del `array y_values`.
+
+En la línea 16 deberás completar el código para que la variable `x_y_max` tenga el valor tal que el punto `(x_y_max, y_max)` sea el punto máximo de la gráfica de línea.
+
+Observa que a estas partes faltantes las hemos etiquetado como **#Completar1**, **#Completar2** y **#Completar3**, para poder hacer referencia a ellas después.
+
+La segunda parte del código, donde definimos las gráficas que visualizaremos, es esta:
+
+```python
+17
+18	trace1 = go.Scatter(x=x_values,
+19	                   y=y_values,
+20	                   name='Datos',
+21	                   mode='lines')
+22	
+23	#Definir los parámetros x e y de modo que:
+24	#Se genere una línea punteada horizontal a la altura del promedio de y_values
+25	trace2 = go.Scatter(x=#Completar4,
+26	                   y=#Completar5,
+27	                   name='Promedio',
+28	                   mode='lines',
+29	                   line={'dash':'dash'})
+30	
+31	data = [trace1, trace2]
+32	layout = go.Layout(title='Gráfica de línea')
+33	fig = go.Figure(data=data, layout=layout)
+```
+
+En la línea 18 creamos el `trace1` con un `go.Scatter()`, como vimos en el ejemplo de la unidad 5.
+
+En la línea 25 creamos el `trace2` también con `go.Scatter()`.
+
+Aquí deberás definir de manera apropiada los parámetros x e y (elementos **#Completar4** y **#Completar5**), de modo que el resultado sea una línea punteada horizontal que esté a la altura del promedio de los valores del `array y_values`.
+
+Las líneas 31, 32 y 33 ya las hemos discutido en la unidad 5.
+
+La tercera y última parte del código, donde definimos las anotaciones que mencionamos al principio, es la siguiente:
+
+```python
+34
+35	#Definir los parámetros x e y de modo que esta anotación apunte al valor máximo de la línea
+36	fig.add_annotation(x=#Completar6,
+37	                  y=#Completar7,
+38	                  text="En x = {:.2f} alcanzó su valor máximo de {:.2f}".format(#Completar6, Completar7),
+39	                  showarrow=True,
+40	                  arrowhead=5)
+41
+42	fig.add_annotation(axref='x',
+43	                  ayref='y',
+44	                  x=0.6,
+45	                  y=#Completar8,
+46	                  ax=0.5,
+47	                  ay=-2,
+48	                  text="El promedio de los valores es {:.2f}".format(#Completar8),
+49	                  showarrow=True,
+50	                  arrowhead=5)
+51
+52	pyo.plot(fig, filename='line_chart.html')
+```
+
+En la línea 36, mediante la función `fig.add_annotation()`, agregamos la primera anotación, que sirve para señalar al punto máximo de la gráfica de línea.
+
+En las líneas 36 y 37, deberás definir de manera apropiada los parámetros x e y para que esta anotación apunte a dicho máximo.
+
+Observa que los elementos **#Completar6** y **#Completar7** también se usan en la línea 38, donde se define el texto de la anotación.
+
+En la línea 42, mediante la función `fig.add_annotation()`, agregamos la segunda anotación, que sirve para señalar a la línea horizontal punteada.
+
+En la línea 45, deberás definir de manera apropiada el  parámetro y para que dicha anotación apunte al punto sobre dicha línea  horizontal punteada donde x=0.6.
+
+Observa que el elemento **#Completar8** también se usa en la línea 48, donde se define el texto de la anotación.

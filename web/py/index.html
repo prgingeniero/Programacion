@@ -442,6 +442,52 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#plotly" class="md-nav__link">
+    plotly
+  </a>
+  
+    <nav class="md-nav" aria-label="plotly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proyecto" class="md-nav__link">
+    Proyecto
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+    <nav class="md-nav" aria-label="Objetivo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instrucciones" class="md-nav__link">
+    Instrucciones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -570,6 +616,52 @@
   <a href="#iterando-sobre-los-elementos-en-beautiful-soup" class="md-nav__link">
     Iterando sobre los elementos en Beautiful Soup
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plotly" class="md-nav__link">
+    plotly
+  </a>
+  
+    <nav class="md-nav" aria-label="plotly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proyecto" class="md-nav__link">
+    Proyecto
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+    <nav class="md-nav" aria-label="Objetivo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instrucciones" class="md-nav__link">
+    Instrucciones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1037,6 +1129,87 @@ pk@pk:~$
     <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;outer-text&quot;</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="err">“</span><span class="n">class</span><span class="err">”</span><span class="p">),</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
 </code></pre></div>
+<h2 id="plotly">plotly</h2>
+<h3 id="proyecto">Proyecto</h3>
+<h4 id="objetivo">Objetivo</h4>
+<p>El objetivo del proyecto será explorar, de manera básica, cómo agregar anotaciones en nuestras gráficas generadas con plotly.</p>
+<p>En particular, aprenderás cómo agregar anotaciones para señalar puntos específicos de la gráfica de línea que revisamos en el primer  ejemplo de la unidad 5.</p>
+<h5 id="instrucciones">Instrucciones</h5>
+<p>Completa las partes faltantes del código para obtener el siguiente resultado:</p>
+<p>​       <img alt="Gráfica en línea" src="../py.assets/Proyecto_Mo_dulo3.png" /> </p>
+<p>La primera parte del código, donde definimos los datos para graficar, es esta:</p>
+<div class="highlight"><pre><span></span><code><span class="mi">1</span>   <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="mi">2</span>   <span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">pyo</span>
+<span class="mi">3</span>   <span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="mi">4</span>
+<span class="mi">5</span>   <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="mi">6</span>   <span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="mi">7</span>   <span class="n">y_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="mi">8</span>
+<span class="mi">9</span>   <span class="c1">#Calcular el promedio de los valores de y_values</span>
+<span class="mi">10</span>  <span class="n">y_avg</span> <span class="o">=</span> <span class="c1">#Completar1</span>
+<span class="mi">11</span>
+<span class="mi">12</span>  <span class="c1">#Calcular el valor máximo de y_values</span>
+<span class="mi">13</span>  <span class="n">y_max</span> <span class="o">=</span> <span class="c1">#Completar2</span>
+<span class="mi">14</span>
+<span class="mi">15</span>  <span class="c1">#Calcular el valor x_y_max tal que (x_y_max, y_max) sea el punto máximo de la gráfica de línea</span>
+<span class="mi">16</span>  <span class="n">x_y_max</span> <span class="o">=</span> <span class="c1">#Completar3</span>
+</code></pre></div>
+<p>Como mencionamos antes, este proyecto inicia igual que el  ejemplo que revisamos en la unidad 5. Las primeras 7 líneas del código  son igual que en dicho ejemplo.</p>
+<p>En la línea 10 deberás completar el código para que en la variable <code>y_avg</code> sea igual al promedio de los valores del <code>array y_values</code>.</p>
+<p>En la línea 13 deberás completar el código para que en la variable <code>y_max</code> sea igual al valor máximo del <code>array y_values</code>.</p>
+<p>En la línea 16 deberás completar el código para que la variable <code>x_y_max</code> tenga el valor tal que el punto <code>(x_y_max, y_max)</code> sea el punto máximo de la gráfica de línea.</p>
+<p>Observa que a estas partes faltantes las hemos etiquetado como <strong>#Completar1</strong>, <strong>#Completar2</strong> y <strong>#Completar3</strong>, para poder hacer referencia a ellas después.</p>
+<p>La segunda parte del código, donde definimos las gráficas que visualizaremos, es esta:</p>
+<div class="highlight"><pre><span></span><code><span class="mi">17</span>
+<span class="mi">18</span>  <span class="n">trace1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_values</span><span class="p">,</span>
+<span class="mi">19</span>                     <span class="n">y</span><span class="o">=</span><span class="n">y_values</span><span class="p">,</span>
+<span class="mi">20</span>                     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Datos&#39;</span><span class="p">,</span>
+<span class="mi">21</span>                     <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">)</span>
+<span class="mi">22</span>  
+<span class="mi">23</span>  <span class="c1">#Definir los parámetros x e y de modo que:</span>
+<span class="mi">24</span>  <span class="c1">#Se genere una línea punteada horizontal a la altura del promedio de y_values</span>
+<span class="mi">25</span>  <span class="n">trace2</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="c1">#Completar4,</span>
+<span class="mi">26</span>                     <span class="n">y</span><span class="o">=</span><span class="c1">#Completar5,</span>
+<span class="mi">27</span>                     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Promedio&#39;</span><span class="p">,</span>
+<span class="mi">28</span>                     <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+<span class="mi">29</span>                     <span class="n">line</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dash&#39;</span><span class="p">:</span><span class="s1">&#39;dash&#39;</span><span class="p">})</span>
+<span class="mi">30</span>  
+<span class="mi">31</span>  <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trace1</span><span class="p">,</span> <span class="n">trace2</span><span class="p">]</span>
+<span class="mi">32</span>  <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Gráfica de línea&#39;</span><span class="p">)</span>
+<span class="mi">33</span>  <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
+</code></pre></div>
+<p>En la línea 18 creamos el <code>trace1</code> con un <code>go.Scatter()</code>, como vimos en el ejemplo de la unidad 5.</p>
+<p>En la línea 25 creamos el <code>trace2</code> también con <code>go.Scatter()</code>.</p>
+<p>Aquí deberás definir de manera apropiada los parámetros x e y (elementos <strong>#Completar4</strong> y <strong>#Completar5</strong>), de modo que el resultado sea una línea punteada horizontal que esté a la altura del promedio de los valores del <code>array y_values</code>.</p>
+<p>Las líneas 31, 32 y 33 ya las hemos discutido en la unidad 5.</p>
+<p>La tercera y última parte del código, donde definimos las anotaciones que mencionamos al principio, es la siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="mi">34</span>
+<span class="mi">35</span>  <span class="c1">#Definir los parámetros x e y de modo que esta anotación apunte al valor máximo de la línea</span>
+<span class="mi">36</span>  <span class="n">fig</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="c1">#Completar6,</span>
+<span class="mi">37</span>                    <span class="n">y</span><span class="o">=</span><span class="c1">#Completar7,</span>
+<span class="mi">38</span>                    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;En x = </span><span class="si">{:.2f}</span><span class="s2"> alcanzó su valor máximo de </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="c1">#Completar6, Completar7),</span>
+<span class="mi">39</span>                    <span class="n">showarrow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="mi">40</span>                    <span class="n">arrowhead</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="mi">41</span>
+<span class="mi">42</span>  <span class="n">fig</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span><span class="n">axref</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+<span class="mi">43</span>                    <span class="n">ayref</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
+<span class="mi">44</span>                    <span class="n">x</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+<span class="mi">45</span>                    <span class="n">y</span><span class="o">=</span><span class="c1">#Completar8,</span>
+<span class="mi">46</span>                    <span class="n">ax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="mi">47</span>                    <span class="n">ay</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span>
+<span class="mi">48</span>                    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;El promedio de los valores es </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="c1">#Completar8),</span>
+<span class="mi">49</span>                    <span class="n">showarrow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="mi">50</span>                    <span class="n">arrowhead</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="mi">51</span>
+<span class="mi">52</span>  <span class="n">pyo</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;line_chart.html&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>En la línea 36, mediante la función <code>fig.add_annotation()</code>, agregamos la primera anotación, que sirve para señalar al punto máximo de la gráfica de línea.</p>
+<p>En las líneas 36 y 37, deberás definir de manera apropiada los parámetros x e y para que esta anotación apunte a dicho máximo.</p>
+<p>Observa que los elementos <strong>#Completar6</strong> y <strong>#Completar7</strong> también se usan en la línea 38, donde se define el texto de la anotación.</p>
+<p>En la línea 42, mediante la función <code>fig.add_annotation()</code>, agregamos la segunda anotación, que sirve para señalar a la línea horizontal punteada.</p>
+<p>En la línea 45, deberás definir de manera apropiada el  parámetro y para que dicha anotación apunte al punto sobre dicha línea  horizontal punteada donde x=0.6.</p>
+<p>Observa que el elemento <strong>#Completar8</strong> también se usa en la línea 48, donde se define el texto de la anotación.</p>
 
               
             </article>

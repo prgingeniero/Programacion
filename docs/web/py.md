@@ -599,280 +599,99 @@ for p in soup.find_all(“p”):
 
 
 
-## plotly 
+# Expresiones Regulares
 
-### Proyecto
-
-#### Objetivo
-
-El objetivo del proyecto será explorar, de manera básica, cómo agregar anotaciones en nuestras gráficas generadas con plotly.
-
-En particular, aprenderás cómo agregar anotaciones para señalar puntos específicos de la gráfica de línea que revisamos en el primer  ejemplo de la unidad 5.
-
-##### Instrucciones
-
-Completa las partes faltantes del código para obtener el siguiente resultado:
-
-​	    ![Gráfica en línea](py.assets/Proyecto_Mo_dulo3.png) 
+### Expresiones Regulares
 
 
 
-La primera parte del código, donde definimos los datos para graficar, es esta:
+Las Expresiones Regulares, comúnmente conocidas como **Regex (Regular Expression)**, son secuencias de caracteres que sirven para especificar un patrón de  búsqueda en un texto o cadena de caracteres. Python posee un módulo  dedicado a la creación y uso de Expresiones Regulares (re) (https://docs.python.org/library/re.html).
 
-```pythonLaLaLa
-1	import numpy as np
-2	import plotly.offline as pyo
-3	import plotly.graph_objs as go
-4
-5	np.random.seed(42)
-6	x_values = np.linspace(0, 1, 100)
-7	y_values = np.random.randn(100)
-8
-9	#Calcular el promedio de los valores de y_values
-10	y_avg = #Completar1
-11
-12	#Calcular el valor máximo de y_values
-13	y_max = #Completar2
-14
-15	#Calcular el valor x_y_max tal que (x_y_max, y_max) sea el punto máximo de la gráfica de línea
-16	x_y_max = #Completar3
+Una Expresión Regular está integrada generalmente por caracteres  ordinarios y especiales. La siguiente expresión regular incluye el  literal 'a', los operadores ‘\w’ y ‘\b’ que permiten indicar  coincidencias predefinidas y el calificador de repetición ‘*’.
+
+```
+r'\ba\w*'
 ```
 
-Como mencionamos antes, este proyecto inicia igual que el  ejemplo que revisamos en la unidad 5. Las primeras 7 líneas del código  son igual que en dicho ejemplo.
 
-En la línea 10 deberás completar el código para que en la variable `y_avg` sea igual al promedio de los valores del `array y_values`.
 
-En la línea 13 deberás completar el código para que en la variable `y_max` sea igual al valor máximo del `array y_values`.
 
-En la línea 16 deberás completar el código para que la variable `x_y_max` tenga el valor tal que el punto `(x_y_max, y_max)` sea el punto máximo de la gráfica de línea.
 
-Observa que a estas partes faltantes las hemos etiquetado como **#Completar1**, **#Completar2** y **#Completar3**, para poder hacer referencia a ellas después.
+La expresión anterior puede utilizarse para buscar palabras que empiecen con a y posterior a ella se tengan cero o más caracteres  alfanuméricos (incluyendo el guión bajo). La Tabla 1 presenta las  coincidencias predefinidas y la Tabla 2 una lista de los caracteres  especiales más utilizados.
 
-La segunda parte del código, donde definimos las gráficas que visualizaremos, es esta:
+| Elemento | Descripción                                                  |
+| -------- | ------------------------------------------------------------ |
+| `.`      | Este carácter coincide con cualquier carácter excepto una nueva línea. |
+| `\d`     | Este carácter coincide con cualquier dígito decimal.         |
+| `\D`     | Este carácter coincide con cualquiera que no sea un dígito.  |
+| `\s`     | Este carácter coincide con cualquier carácter de espacio en blanco (\t, \n, \r, \f, \v) |
+| `\S`     | Este carácter coincide con cualquier carácter que no sea espacio en blanco (\t, \n, \r, \f, \v) |
+| `\w`     | Este carácter coincide con cualquier carácter alfanumérico incluyendo el guión bajo. |
+| `\W`     | Este carácter coincide con cualquier carácter que no sea alfanumérico, ni guión bajo. |
+
+Tabla 1
+
+| Carácter Especial | Descripción                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| `^ (caret)`       | Indica búsqueda de coincidencias al inicio de la cadena.     |
+| `$`               | Indica búsqueda de coincidencias al final de la cadena o justo antes de una nueva línea al final de la cadena. |
+| `*`               | Indica búsqueda de coincidencias con 0 o más repeticiones del carácter que lo precede. |
+| `+`               | Indica búsqueda de coincidencias con 1 o más repeticiones del carácter anterior. |
+| `?`               | Indica búsqueda de coincidencias con 0 o 1 repetición del carácter que lo precede. |
+| `{m}`             | Indica búsqueda de coincidencias con m repeticiones del carácter que lo precede. |
+| `{m,n}`           | Indica búsqueda de coincidencias entre m y n repeticiones del carácter que lo precede. |
+
+Tabla 2
+
+Tal como puede darse cuenta, las expresiones regulares hacen uso extensivo de las barras invertidas **(‘\’, backslash)**. ¡Pero las barras invertidas son un carácter de escape en Python! De  modo que si se encuentra un “\n” se interpretaría como una línea nueva.  Sin embargo, Python admite cadenas sin formato (raw strings) en las  cuales las barras invertidas no se interpretan como caracteres de  escape. Las cadenas sin formato se definen colocando el carácter `r` inmediatamente antes de las comillas de apertura.
+
+Existen diferentes funciones en la biblioteca **re** que nos permiten la búsqueda, división y reemplazo de cadenas de  caracteres basados en la coincidencia. En esta unidad se han utilizado  la función `re.findall()`
+
+- ```python
+  re.findall(pattern, string)
+  ```
+
+  : Devuelve todas las coincidencias no superpuestas del patrón (pattern)  en la cadena de caracteres dada (string) como una lista de cadenas de  caracteres. La cadena es escaneada de izquierda a derecha, y las  coincidencias son devuelvas en el orden de aparición.          
+
+
+Observa, que si quisiéramos encontrar palabras de 4 letras que  inicien con a, entonces es posible indicar el límite de la palabra al  inicio y fin de la expresión regular:
+
+```
+r'\ba\w{3}\b'
+```
+
+
 
 ```python
-17
-18	trace1 = go.Scatter(x=x_values,
-19	                   y=y_values,
-20	                   name='Datos',
-21	                   mode='lines')
-22	
-23	#Definir los parámetros x e y de modo que:
-24	#Se genere una línea punteada horizontal a la altura del promedio de y_values
-25	trace2 = go.Scatter(x=#Completar4,
-26	                   y=#Completar5,
-27	                   name='Promedio',
-28	                   mode='lines',
-29	                   line={'dash':'dash'})
-30	
-31	data = [trace1, trace2]
-32	layout = go.Layout(title='Gráfica de línea')
-33	fig = go.Figure(data=data, layout=layout)
+# Ejemplo 5
+import re
+
+
+sentence = “¡Oh amor mío, esposa mía! La muerte, que ha 
+extraído la miel de tu aliento, no ha tenido poder aún sobre 
+tu hermosura; no has sido vencida; el carmín, distintivo de la 
+belleza, luce en tus labios y mejillas, do aún no ondea la 
+pálida enseña de la muerte. -¡Oh, Julieta!, ¿por qué luces tan 
+encantadora todavía? -Aquí, aquí voy a establecer mi eternal 
+permanencia, a sacudir del yugo de las estrellas enemigas este 
+cuerpo cansado de vivir.”
+
+
+matches = re.findall(r'\ba\w{3}\b',sentence)
+
+
+print(matches)
 ```
 
-En la línea 18 creamos el `trace1` con un `go.Scatter()`, como vimos en el ejemplo de la unidad 5.
+De acuerdo con el Ejemplo 5, la expresión regular indicadas encontraría las palabras “amor” y “aquí”.
 
-En la línea 25 creamos el `trace2` también con `go.Scatter()`.
+------
 
-Aquí deberás definir de manera apropiada los parámetros x e y (elementos **#Completar4** y **#Completar5**), de modo que el resultado sea una línea punteada horizontal que esté a la altura del promedio de los valores del `array y_values`.
+*Referencias*:
 
-Las líneas 31, 32 y 33 ya las hemos discutido en la unidad 5.
+​       
 
-La tercera y última parte del código, donde definimos las anotaciones que mencionamos al principio, es la siguiente:
-
-```python
-34
-35	#Definir los parámetros x e y de modo que esta anotación apunte al valor máximo de la línea
-36	fig.add_annotation(x=#Completar6,
-37	                  y=#Completar7,
-38	                  text="En x = {:.2f} alcanzó su valor máximo de {:.2f}".format(#Completar6, Completar7),
-39	                  showarrow=True,
-40	                  arrowhead=5)
-41
-42	fig.add_annotation(axref='x',
-43	                  ayref='y',
-44	                  x=0.6,
-45	                  y=#Completar8,
-46	                  ax=0.5,
-47	                  ay=-2,
-48	                  text="El promedio de los valores es {:.2f}".format(#Completar8),
-49	                  showarrow=True,
-50	                  arrowhead=5)
-51
-52	pyo.plot(fig, filename='line_chart.html')
-```
-
-En la línea 36, mediante la función `fig.add_annotation()`, agregamos la primera anotación, que sirve para señalar al punto máximo de la gráfica de línea.
-
-En las líneas 36 y 37, deberás definir de manera apropiada los parámetros x e y para que esta anotación apunte a dicho máximo.
-
-Observa que los elementos **#Completar6** y **#Completar7** también se usan en la línea 38, donde se define el texto de la anotación.
-
-En la línea 42, mediante la función `fig.add_annotation()`, agregamos la segunda anotación, que sirve para señalar a la línea horizontal punteada.
-
-En la línea 45, deberás definir de manera apropiada el  parámetro y para que dicha anotación apunte al punto sobre dicha línea  horizontal punteada donde x=0.6.
-
-Observa que el elemento **#Completar8** también se usa en la línea 48, donde se define el texto de la anotación.
-
-
-
-
-
-## Introducción a las bases de Dash
-
-#### Dash es una biblioteca para crear tableros puramente en Python.
-
-[ https://dash.plotly.com/introduction](https://dash.plotly.com/introduction)
-
-Las componentes de HTML vienen de `dash_html_components`, que básicamente tiene un componente de Python para cada etiqueta HTML posible. 
-      [ https://dash.plotly.com/dash-html-components](https://dash.plotly.com/dash-html-components)
-
-La otra biblioteca es `dash_core_components` que contiene son los componentes centrales, y esta ofrece un sistema de componentes interactivos de nivel superior en el que generará cosas  como JavaScript, HTML y CSS a través de la biblioteca React.JS, todo en  Python. 
-      [ https://dash.plotly.com/dash-core-components](https://dash.plotly.com/dash-core-components)
-
-Si deseas ver ejemplos más complejos de lo que se puede lograr con `Plotly+Dash`, te sugerimos revisar la galería: 
-      [ https://dash-gallery.plotly.host/Portal/](https://dash-gallery.plotly.host/Portal/)
-
-En general nuestros códigos de las siguientes unidades empezarán importando estos módulos:
-
-```python
- import dash
- import dash_core_components as dcc
- import dash_html_components as html
-```
-
-Recuerda que si aún no los tienes instalados, puedes obtenerlos usando, por ejemplo: 
-
-​            `pip install dash`            
-
-desde la terminal en PyCharm.
-
-
-
-
-
-### Proyecto
-
-#### Objetivo
-
-El objetivo de este proyecto es utilizar elementos que  revisamos durante este módulo 4 para construir un tablero en el que  podamos analizar las variables de uno de los datasets que utilizamos en  el módulo 3, el *dataset iris*.
-
-En particular, nuestro tablero nos permitirá especificar algunos parámetros de un diagrama de dispersión: los *ejes* y los *marginales*.
-
-El resultado final debe verse de esta forma:
-
-​	    ![Diagrama de dispersión](py.assets/Proyecto_Mo_dulo4.png) 
-
-
-
-##### Instrucciones
-
-Te presentamos la mayor parte del código para generar el  tablero antes descrito, sin embargo, este código tiene partes faltantes  que deberás completar. Las ubicarás donde hemos colocado etiquetas de  tipo #Completar1.
-
-Esta es la primera parte del código:
-
-```python
-1	import dash
-2	import dash_core_components as dcc
-3	import dash_html_components as html
-4	import pandas as pd
-5	import plotly.express as px
-6	from dash.dependencies import Input, Output
-7
-8	df = pd.read_csv('Datasets/iris.csv')
-9
-10	variables = #Completar1
-11	marginals = #Completar2
-12
-13	app = dash.Dash()
-```
-
-Las primeras líneas son para importar las bibliotecas necesarias.
-
-En la línea 8 creamos el `dataframe df` leyendo el dataset `iris.csv`.
-
-En la línea 10 deberás definir **#Completar1** de modo que **variables** sirva como el parámetro options de los *dropdowns* que sirven para seleccionar variables del dataframe, con la restricción de que no incluya a la variable 'class'.
-
-En la línea 11 deberás definir **#Completar2** de modo que **marginals** sirva como el parámetro options de los *radio items* que sirven para seleccionar alguno de los cuatro tipo de marginales: `'histogram', 'rug', 'box' y 'violin'`.
-
-Luego, tenemos la segunda parte del código, la más extensa:
-
-```python
-15	app.layout = html.Div([html.Div([html.H1('Análisis del dataset iris.csv')],
-16	                               style={'textAlign': 'center'}),
-17	                      html.Div([html.H3('Configuración de parámetros de la gráfica')],
-18	                               style={'marginLeft': '5%'}),
-19	                      html.Div([html.Label('Selecciona la variable del eje X'),
-20	                                dcc.Dropdown(id='eje-x', options=#Completar3)],
-21	                               style={'width': '20%',
-22	                                      'marginRight': '3%',
-23	                                      'marginLeft': '5%',
-24	                                      'verticalAlign': 'top',
-25	                                      'display': 'inline-block'}),
-26	                      html.Div([html.Label('Selecciona el marginal del eje X'),
-27	                                dcc.RadioItems(id='marginal-x', options=#Completar4, labelStyle={'display': 'block'})],
-28	                               style={'width': '20%',
-29	                                      'marginRight': '4%',
-30	                                      'display': 'inline-block'}),
-31	                      html.Div([html.Label('Seleccionar la variable del eje Y'),
-32	                                dcc.Dropdown(id='eje-y', options=#Completar3)],
-33	                               style={'width': '20%',
-34	                                      'marginRight': '3%',
-35	                                      'verticalAlign': 'top',
-36	                                      'display': 'inline-block'}),
-37	                      html.Div([html.Label('Selecciona el marginal del eje Y'),
-38	                                dcc.RadioItems(id='marginal-y', options=#Completar4, labelStyle={'display': 'block'})],
-39	                               style={'width': '20%',
-40	                                      'display': 'inline-block'}),
-41	                      html.Div([dcc.Graph(id='scatter')])])
-```
-
-Observa que en realidad esta parte del código, donde definimos  el layout de nuestro tablero, es extensa debido a que usamos muchos  parámetros de tipo style, para poder darle la forma deseada a nuestro  tablero, pero en realidad este layout tiene cinco elementos principales: `dos dcc.Dropdown()`, `dos dcc.RadioItems()` y un `dcc.Graph()`.
-
-En la línea 20, deberás definir **#Completar3** de modo que el elemento `dcc.Dropdown()` de esa misma línea sirva para poder seleccionar alguna de las variables del dataframe, y que se asigne al eje X.
-
-Observa que en la línea 32 usamos ese mismo elemento para el eje Y.
-
-En la línea 27, deberás definir **#Completar4** de modo que el elemento `dcc.RadioItems()` de esa misma línea sirva para poder seleccionar alguna de las opciones  de marginales que tenemos, y que se asigne al marginal del eje X.
-
-Observa que en la línea 38 usamos ese mismo elemento para el eje Y.
-
-Todos los demás parámetros y elementos ya están definidos, y  puedes modificarlos si gustas, sobre todo si alguno no te queda claro  qué rol está jugando en la distribución de los elementos del tablero,  para explorar.
-
-Para que los elementos del tablero queden distribuidos como te  presentamos previamente, la recomendación es que uses las definiciones  que te proponemos.
-
-Finalmente, la tercera y última parte del código es la siguiente:
-
-```python
-43	@app.callback(Output('scatter', 'figure'),
-44	             [Input('eje-x', 'value'),
-45	              Input('marginal-x', 'value'),
-46	              Input('eje-y', 'value'),
-47	              Input('marginal-y', 'value')])
-48	def update_outputs(vx, mx, vy, my):
-49	   fig = px.scatter(df,
-50	                    x=#Completar5,
-51	                    y=#Completar6,
-52	                    color='class',
-53	                    marginal_x=#Completar7,
-54	                    marginal_y=#Completar8,
-55	                    title='Diagrama de dispersión: '+str(#Completar5)+' v.s. '+str(#Completar6))
-56	   return fig
-57
-58	if __name__ == '__main__':
-59	   app.run_server()
-```
-
-De la línea 43 a la 56 definimos un callback, que recibe los  cuatro valores que el usuario seleccionó en los dropdowns y en los radio items, y actualiza el diagrama de dispersión, y los respectivos  marginales de los ejes.
-
-En la línea 50, deberás definir **#Completar5** de modo que al parámetro x le asignes la variable que el usuario seleccionó en el dropdown del eje X.
-
-En la línea 51, deberás definir **#Completar6** de modo que al parámetro y le asignes la variable que el usuario seleccionó en el dropdown del eje Y.
-
-Observa que esos elementos, **#Completar5** y **#Completar6**, también se usan en la línea 55, para actualizar el título de la gráfica.
-
-En la línea 53, deberás definir **#Completar7** de modo que al parámetro `marginal_x` le asignes la opción de marginal que el usuario seleccionó para el radio item del eje X.
-
-En la línea 54, deberás definir **#Completar8** de modo que al parámetro `marginal_y` le asignes la opción de marginal que el usuario seleccionó para el radio item del eje Y.
-
-Al guardar y ejecutar el código completo, debes obtener un tablero como el que te presentamos al principio.
+- A. Chapagain (2019). Hands-On Web Scraping with Python. India: Packt Publishing.        
+- D. Zinoviev (2016). Data Science Essentials in Python. USA: Pragmatic Bookshelf.        
+- F. López & V. Romero (2014). Mastering Python Regular Expressions. India: Packt Publishing.        
+- C. F. Severance (2016) Python for Everybody. Exploring Data Using Python 3.          

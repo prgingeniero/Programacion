@@ -488,6 +488,59 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#introduccion-a-las-bases-de-dash" class="md-nav__link">
+    Introducción a las bases de Dash
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción a las bases de Dash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dash-es-una-biblioteca-para-crear-tableros-puramente-en-python" class="md-nav__link">
+    Dash es una biblioteca para crear tableros puramente en Python.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proyecto_1" class="md-nav__link">
+    Proyecto
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objetivo_1" class="md-nav__link">
+    Objetivo
+  </a>
+  
+    <nav class="md-nav" aria-label="Objetivo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instrucciones_1" class="md-nav__link">
+    Instrucciones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -650,6 +703,59 @@
         
           <li class="md-nav__item">
   <a href="#instrucciones" class="md-nav__link">
+    Instrucciones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-a-las-bases-de-dash" class="md-nav__link">
+    Introducción a las bases de Dash
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción a las bases de Dash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dash-es-una-biblioteca-para-crear-tableros-puramente-en-python" class="md-nav__link">
+    Dash es una biblioteca para crear tableros puramente en Python.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proyecto_1" class="md-nav__link">
+    Proyecto
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objetivo_1" class="md-nav__link">
+    Objetivo
+  </a>
+  
+    <nav class="md-nav" aria-label="Objetivo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instrucciones_1" class="md-nav__link">
     Instrucciones
   </a>
   
@@ -1138,22 +1244,22 @@ pk@pk:~$
 <p>Completa las partes faltantes del código para obtener el siguiente resultado:</p>
 <p>​       <img alt="Gráfica en línea" src="../py.assets/Proyecto_Mo_dulo3.png" /> </p>
 <p>La primera parte del código, donde definimos los datos para graficar, es esta:</p>
-<div class="highlight"><pre><span></span><code><span class="mi">1</span>   <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="mi">2</span>   <span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">pyo</span>
-<span class="mi">3</span>   <span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="mi">4</span>
-<span class="mi">5</span>   <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="mi">6</span>   <span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="mi">7</span>   <span class="n">y_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="mi">8</span>
-<span class="mi">9</span>   <span class="c1">#Calcular el promedio de los valores de y_values</span>
-<span class="mi">10</span>  <span class="n">y_avg</span> <span class="o">=</span> <span class="c1">#Completar1</span>
-<span class="mi">11</span>
-<span class="mi">12</span>  <span class="c1">#Calcular el valor máximo de y_values</span>
-<span class="mi">13</span>  <span class="n">y_max</span> <span class="o">=</span> <span class="c1">#Completar2</span>
-<span class="mi">14</span>
-<span class="mi">15</span>  <span class="c1">#Calcular el valor x_y_max tal que (x_y_max, y_max) sea el punto máximo de la gráfica de línea</span>
-<span class="mi">16</span>  <span class="n">x_y_max</span> <span class="o">=</span> <span class="c1">#Completar3</span>
+<div class="highlight"><pre><span></span><code>1   import numpy as np
+2   import plotly.offline as pyo
+3   import plotly.graph_objs as go
+4
+5   np.random.seed(42)
+6   x_values = np.linspace(0, 1, 100)
+7   y_values = np.random.randn(100)
+8
+9   #Calcular el promedio de los valores de y_values
+10  y_avg = #Completar1
+11
+12  #Calcular el valor máximo de y_values
+13  y_max = #Completar2
+14
+15  #Calcular el valor x_y_max tal que (x_y_max, y_max) sea el punto máximo de la gráfica de línea
+16  x_y_max = #Completar3
 </code></pre></div>
 <p>Como mencionamos antes, este proyecto inicia igual que el  ejemplo que revisamos en la unidad 5. Las primeras 7 líneas del código  son igual que en dicho ejemplo.</p>
 <p>En la línea 10 deberás completar el código para que en la variable <code>y_avg</code> sea igual al promedio de los valores del <code>array y_values</code>.</p>
@@ -1210,6 +1316,112 @@ pk@pk:~$
 <p>En la línea 42, mediante la función <code>fig.add_annotation()</code>, agregamos la segunda anotación, que sirve para señalar a la línea horizontal punteada.</p>
 <p>En la línea 45, deberás definir de manera apropiada el  parámetro y para que dicha anotación apunte al punto sobre dicha línea  horizontal punteada donde x=0.6.</p>
 <p>Observa que el elemento <strong>#Completar8</strong> también se usa en la línea 48, donde se define el texto de la anotación.</p>
+<h2 id="introduccion-a-las-bases-de-dash">Introducción a las bases de Dash</h2>
+<h4 id="dash-es-una-biblioteca-para-crear-tableros-puramente-en-python">Dash es una biblioteca para crear tableros puramente en Python.</h4>
+<p><a href="https://dash.plotly.com/introduction"> https://dash.plotly.com/introduction</a></p>
+<p>Las componentes de HTML vienen de <code>dash_html_components</code>, que básicamente tiene un componente de Python para cada etiqueta HTML posible. 
+      <a href="https://dash.plotly.com/dash-html-components"> https://dash.plotly.com/dash-html-components</a></p>
+<p>La otra biblioteca es <code>dash_core_components</code> que contiene son los componentes centrales, y esta ofrece un sistema de componentes interactivos de nivel superior en el que generará cosas  como JavaScript, HTML y CSS a través de la biblioteca React.JS, todo en  Python. 
+      <a href="https://dash.plotly.com/dash-core-components"> https://dash.plotly.com/dash-core-components</a></p>
+<p>Si deseas ver ejemplos más complejos de lo que se puede lograr con <code>Plotly+Dash</code>, te sugerimos revisar la galería: 
+      <a href="https://dash-gallery.plotly.host/Portal/"> https://dash-gallery.plotly.host/Portal/</a></p>
+<p>En general nuestros códigos de las siguientes unidades empezarán importando estos módulos:</p>
+<div class="highlight"><pre><span></span><code> <span class="kn">import</span> <span class="nn">dash</span>
+ <span class="kn">import</span> <span class="nn">dash_core_components</span> <span class="k">as</span> <span class="nn">dcc</span>
+ <span class="kn">import</span> <span class="nn">dash_html_components</span> <span class="k">as</span> <span class="nn">html</span>
+</code></pre></div>
+<p>Recuerda que si aún no los tienes instalados, puedes obtenerlos usando, por ejemplo: </p>
+<p>​            <code>pip install dash</code>            </p>
+<p>desde la terminal en PyCharm.</p>
+<h3 id="proyecto_1">Proyecto</h3>
+<h4 id="objetivo_1">Objetivo</h4>
+<p>El objetivo de este proyecto es utilizar elementos que  revisamos durante este módulo 4 para construir un tablero en el que  podamos analizar las variables de uno de los datasets que utilizamos en  el módulo 3, el <em>dataset iris</em>.</p>
+<p>En particular, nuestro tablero nos permitirá especificar algunos parámetros de un diagrama de dispersión: los <em>ejes</em> y los <em>marginales</em>.</p>
+<p>El resultado final debe verse de esta forma:</p>
+<p>​       <img alt="Diagrama de dispersión" src="../py.assets/Proyecto_Mo_dulo4.png" /> </p>
+<h5 id="instrucciones_1">Instrucciones</h5>
+<p>Te presentamos la mayor parte del código para generar el  tablero antes descrito, sin embargo, este código tiene partes faltantes  que deberás completar. Las ubicarás donde hemos colocado etiquetas de  tipo #Completar1.</p>
+<p>Esta es la primera parte del código:</p>
+<div class="highlight"><pre><span></span><code><span class="mi">1</span>   <span class="kn">import</span> <span class="nn">dash</span>
+<span class="mi">2</span>   <span class="kn">import</span> <span class="nn">dash_core_components</span> <span class="k">as</span> <span class="nn">dcc</span>
+<span class="mi">3</span>   <span class="kn">import</span> <span class="nn">dash_html_components</span> <span class="k">as</span> <span class="nn">html</span>
+<span class="mi">4</span>   <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="mi">5</span>   <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="mi">6</span>   <span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
+<span class="mi">7</span>
+<span class="mi">8</span>   <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Datasets/iris.csv&#39;</span><span class="p">)</span>
+<span class="mi">9</span>
+<span class="mi">10</span>  <span class="n">variables</span> <span class="o">=</span> <span class="c1">#Completar1</span>
+<span class="mi">11</span>  <span class="n">marginals</span> <span class="o">=</span> <span class="c1">#Completar2</span>
+<span class="mi">12</span>
+<span class="mi">13</span>  <span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">()</span>
+</code></pre></div>
+<p>Las primeras líneas son para importar las bibliotecas necesarias.</p>
+<p>En la línea 8 creamos el <code>dataframe df</code> leyendo el dataset <code>iris.csv</code>.</p>
+<p>En la línea 10 deberás definir <strong>#Completar1</strong> de modo que <strong>variables</strong> sirva como el parámetro options de los <em>dropdowns</em> que sirven para seleccionar variables del dataframe, con la restricción de que no incluya a la variable 'class'.</p>
+<p>En la línea 11 deberás definir <strong>#Completar2</strong> de modo que <strong>marginals</strong> sirva como el parámetro options de los <em>radio items</em> que sirven para seleccionar alguno de los cuatro tipo de marginales: <code>'histogram', 'rug', 'box' y 'violin'</code>.</p>
+<p>Luego, tenemos la segunda parte del código, la más extensa:</p>
+<div class="highlight"><pre><span></span><code><span class="mi">15</span>  <span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;Análisis del dataset iris.csv&#39;</span><span class="p">)],</span>
+<span class="mi">16</span>                                 <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;textAlign&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">}),</span>
+<span class="mi">17</span>                        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s1">&#39;Configuración de parámetros de la gráfica&#39;</span><span class="p">)],</span>
+<span class="mi">18</span>                                 <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;marginLeft&#39;</span><span class="p">:</span> <span class="s1">&#39;5%&#39;</span><span class="p">}),</span>
+<span class="mi">19</span>                        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="n">html</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Selecciona la variable del eje X&#39;</span><span class="p">),</span>
+<span class="mi">20</span>                                  <span class="n">dcc</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;eje-x&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="c1">#Completar3)],</span>
+<span class="mi">21</span>                                 <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;20%&#39;</span><span class="p">,</span>
+<span class="mi">22</span>                                        <span class="s1">&#39;marginRight&#39;</span><span class="p">:</span> <span class="s1">&#39;3%&#39;</span><span class="p">,</span>
+<span class="mi">23</span>                                        <span class="s1">&#39;marginLeft&#39;</span><span class="p">:</span> <span class="s1">&#39;5%&#39;</span><span class="p">,</span>
+<span class="mi">24</span>                                        <span class="s1">&#39;verticalAlign&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span>
+<span class="mi">25</span>                                        <span class="s1">&#39;display&#39;</span><span class="p">:</span> <span class="s1">&#39;inline-block&#39;</span><span class="p">}),</span>
+<span class="mi">26</span>                        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="n">html</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Selecciona el marginal del eje X&#39;</span><span class="p">),</span>
+<span class="mi">27</span>                                  <span class="n">dcc</span><span class="o">.</span><span class="n">RadioItems</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;marginal-x&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="c1">#Completar4, labelStyle={&#39;display&#39;: &#39;block&#39;})],</span>
+<span class="mi">28</span>                                 <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;20%&#39;</span><span class="p">,</span>
+<span class="mi">29</span>                                        <span class="s1">&#39;marginRight&#39;</span><span class="p">:</span> <span class="s1">&#39;4%&#39;</span><span class="p">,</span>
+<span class="mi">30</span>                                        <span class="s1">&#39;display&#39;</span><span class="p">:</span> <span class="s1">&#39;inline-block&#39;</span><span class="p">}),</span>
+<span class="mi">31</span>                        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="n">html</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Seleccionar la variable del eje Y&#39;</span><span class="p">),</span>
+<span class="mi">32</span>                                  <span class="n">dcc</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;eje-y&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="c1">#Completar3)],</span>
+<span class="mi">33</span>                                 <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;20%&#39;</span><span class="p">,</span>
+<span class="mi">34</span>                                        <span class="s1">&#39;marginRight&#39;</span><span class="p">:</span> <span class="s1">&#39;3%&#39;</span><span class="p">,</span>
+<span class="mi">35</span>                                        <span class="s1">&#39;verticalAlign&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span>
+<span class="mi">36</span>                                        <span class="s1">&#39;display&#39;</span><span class="p">:</span> <span class="s1">&#39;inline-block&#39;</span><span class="p">}),</span>
+<span class="mi">37</span>                        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="n">html</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Selecciona el marginal del eje Y&#39;</span><span class="p">),</span>
+<span class="mi">38</span>                                  <span class="n">dcc</span><span class="o">.</span><span class="n">RadioItems</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;marginal-y&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="c1">#Completar4, labelStyle={&#39;display&#39;: &#39;block&#39;})],</span>
+<span class="mi">39</span>                                 <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;20%&#39;</span><span class="p">,</span>
+<span class="mi">40</span>                                        <span class="s1">&#39;display&#39;</span><span class="p">:</span> <span class="s1">&#39;inline-block&#39;</span><span class="p">}),</span>
+<span class="mi">41</span>                        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">)])])</span>
+</code></pre></div>
+<p>Observa que en realidad esta parte del código, donde definimos  el layout de nuestro tablero, es extensa debido a que usamos muchos  parámetros de tipo style, para poder darle la forma deseada a nuestro  tablero, pero en realidad este layout tiene cinco elementos principales: <code>dos dcc.Dropdown()</code>, <code>dos dcc.RadioItems()</code> y un <code>dcc.Graph()</code>.</p>
+<p>En la línea 20, deberás definir <strong>#Completar3</strong> de modo que el elemento <code>dcc.Dropdown()</code> de esa misma línea sirva para poder seleccionar alguna de las variables del dataframe, y que se asigne al eje X.</p>
+<p>Observa que en la línea 32 usamos ese mismo elemento para el eje Y.</p>
+<p>En la línea 27, deberás definir <strong>#Completar4</strong> de modo que el elemento <code>dcc.RadioItems()</code> de esa misma línea sirva para poder seleccionar alguna de las opciones  de marginales que tenemos, y que se asigne al marginal del eje X.</p>
+<p>Observa que en la línea 38 usamos ese mismo elemento para el eje Y.</p>
+<p>Todos los demás parámetros y elementos ya están definidos, y  puedes modificarlos si gustas, sobre todo si alguno no te queda claro  qué rol está jugando en la distribución de los elementos del tablero,  para explorar.</p>
+<p>Para que los elementos del tablero queden distribuidos como te  presentamos previamente, la recomendación es que uses las definiciones  que te proponemos.</p>
+<p>Finalmente, la tercera y última parte del código es la siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="mi">43</span>  <span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+<span class="mi">44</span>               <span class="p">[</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;eje-x&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+<span class="mi">45</span>                <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;marginal-x&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+<span class="mi">46</span>                <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;eje-y&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+<span class="mi">47</span>                <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;marginal-y&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)])</span>
+<span class="mi">48</span>  <span class="k">def</span> <span class="nf">update_outputs</span><span class="p">(</span><span class="n">vx</span><span class="p">,</span> <span class="n">mx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">my</span><span class="p">):</span>
+<span class="mi">49</span>     <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
+<span class="mi">50</span>                      <span class="n">x</span><span class="o">=</span><span class="c1">#Completar5,</span>
+<span class="mi">51</span>                      <span class="n">y</span><span class="o">=</span><span class="c1">#Completar6,</span>
+<span class="mi">52</span>                      <span class="n">color</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span>
+<span class="mi">53</span>                      <span class="n">marginal_x</span><span class="o">=</span><span class="c1">#Completar7,</span>
+<span class="mi">54</span>                      <span class="n">marginal_y</span><span class="o">=</span><span class="c1">#Completar8,</span>
+<span class="mi">55</span>                      <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Diagrama de dispersión: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="c1">#Completar5)+&#39; v.s. &#39;+str(#Completar6))</span>
+<span class="mi">56</span>     <span class="k">return</span> <span class="n">fig</span>
+<span class="mi">57</span>
+<span class="mi">58</span>  <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="mi">59</span>     <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">()</span>
+</code></pre></div>
+<p>De la línea 43 a la 56 definimos un callback, que recibe los  cuatro valores que el usuario seleccionó en los dropdowns y en los radio items, y actualiza el diagrama de dispersión, y los respectivos  marginales de los ejes.</p>
+<p>En la línea 50, deberás definir <strong>#Completar5</strong> de modo que al parámetro x le asignes la variable que el usuario seleccionó en el dropdown del eje X.</p>
+<p>En la línea 51, deberás definir <strong>#Completar6</strong> de modo que al parámetro y le asignes la variable que el usuario seleccionó en el dropdown del eje Y.</p>
+<p>Observa que esos elementos, <strong>#Completar5</strong> y <strong>#Completar6</strong>, también se usan en la línea 55, para actualizar el título de la gráfica.</p>
+<p>En la línea 53, deberás definir <strong>#Completar7</strong> de modo que al parámetro <code>marginal_x</code> le asignes la opción de marginal que el usuario seleccionó para el radio item del eje X.</p>
+<p>En la línea 54, deberás definir <strong>#Completar8</strong> de modo que al parámetro <code>marginal_y</code> le asignes la opción de marginal que el usuario seleccionó para el radio item del eje Y.</p>
+<p>Al guardar y ejecutar el código completo, debes obtener un tablero como el que te presentamos al principio.</p>
 
               
             </article>
